@@ -64,7 +64,6 @@ btnUp.addEventListener('click', function() {
     listImgElement[indexElement].classList.remove('active');
     listTumbElement[indexElement].classList.remove('selected');
 
-
     if (indexElement === 0) {
         indexElement = 5;
     }

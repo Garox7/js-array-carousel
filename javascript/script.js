@@ -43,34 +43,28 @@ const listImgElement = document.querySelectorAll('.slider__img');
 let indexElement = 0;
 
 btnDown.addEventListener('click', function() {
+    btnUp.style.visibility = 'visible';
 
-    if (indexElement < listImgElement.length - 1) {
-        btnUp.style.visibility = 'visible';
+    listImgElement[indexElement].classList.remove('active');
+    indexElement++;
+    listImgElement[indexElement].classList.add('active');
 
-        listImgElement[indexElement].classList.remove('active');
-        indexElement++;
-        listImgElement[indexElement].classList.add('active');
-
-        // console.log(indexElement);
-
-
-    } else {
+    if (indexElement === listImgElement.length - 1) {
         btnDown.style.visibility = 'hidden';
+
     }
 })
 
+btnUp.style.visibility = 'hidden';
 btnUp.addEventListener('click', function() {
     
-    if (indexElement > 0) {
-        btnDown.style.visibility = 'visible';
-
-        listImgElement[indexElement].classList.remove('active');
-        indexElement--;
-        listImgElement[indexElement].classList.add('active');
-
-        // console.log(indexElement);
-
-    } else if (indexElement === 0) {
-        btnUp.style.visibilty = 'hidden';
+    btnDown.style.visibility = 'visible';
+    
+    listImgElement[indexElement].classList.remove('active');
+    indexElement--;
+    listImgElement[indexElement].classList.add('active');
+    
+    if (indexElement === 0) {
+        btnUp.style.visibility = 'hidden';
     }
 })
