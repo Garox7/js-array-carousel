@@ -1,15 +1,8 @@
 /*
-1. Costruisco l'array contenente tutte le immagini
-2. creo l'elemento img e inserisco tutte le immagini dell'array con un ciclo for per ogni elemento dell'array
+Costruisco un elemento img dandogli la classe "img__tumb"
+li inserisco all'interno di "slider__section__tumb"
 
-3. Creo una variabile coincidente con gli elementi dell'array
-
-4. aggiungo un evento di click ai bottoni up e down
-    SE la variabile coincide con il numero degli elementi all'interno dell'array
-        - si attiva la classe  "active" all'elemento corrente per mostrare l'immagine
-        - il bottone rimane su active
-    ALTRIMENTI
-        - il bottone di disattiva 
+devo fare in modo di indicare l'immagine selezionata anche nelle img__tumb.
 */
 
 
@@ -25,34 +18,43 @@ const myArrayImg = [
 const sliderElement = document.querySelector('.slider__section__img');
 const btnUp = document.querySelector('.btn-up');
 const btnDown = document.querySelector('.btn-down');
+const tumbElement = document.querySelector('.slider__section__tumb');
 
 for (i = 0; i < myArrayImg.length; i++) {
     const imageElement = document.createElement('img');
     imageElement.src = myArrayImg[i];
     imageElement.classList.add('slider__img');
 
+    const imageTumbElement = document.createElement('img');
+    imageTumbElement.src = myArrayImg[i];
+    imageTumbElement.classList.add('img__tumb');
+
     if (i === 0) {
-        imageElement.classList.add('active')
+        imageElement.classList.add('active');
+        imageTumbElement.classList.add('selected');
     }
 
     sliderElement.append(imageElement);
+    tumbElement.append(imageTumbElement);
 }
 
 const listImgElement = document.querySelectorAll('.slider__img');
+const listTumbElement = document.querySelectorAll('.img__tumb');
 
 let indexElement = 0;
 
 btnDown.addEventListener('click', function() {
 
     listImgElement[indexElement].classList.remove('active');
+    listTumbElement[indexElement].classList.remove('selected');
 
     if (indexElement === 4) {
         indexElement = -1;
     }
-
     indexElement++;
 
     listImgElement[indexElement].classList.add('active');
+    listTumbElement[indexElement].classList.add('selected');
 
     console.log(indexElement);
 })
@@ -60,6 +62,8 @@ btnDown.addEventListener('click', function() {
 btnUp.addEventListener('click', function() {
 
     listImgElement[indexElement].classList.remove('active');
+    listTumbElement[indexElement].classList.remove('selected');
+
 
     if (indexElement === 0) {
         indexElement = 5;
@@ -67,6 +71,7 @@ btnUp.addEventListener('click', function() {
     indexElement--;
 
     listImgElement[indexElement].classList.add('active');
+    listTumbElement[indexElement].classList.add('selected');
 
-        console.log(indexElement);
+    console.log(indexElement);
 })
