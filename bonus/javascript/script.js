@@ -44,29 +44,33 @@ let indexElement = 0;
 
 btnDown.addEventListener('click', function() {
 
-    listImgElement[indexElement].classList.remove('active');
+    if (indexElement < listImgElement.length - 1) {
+        btnUp.style.visibility = 'visible';
 
-    if (indexElement === 4) {
-        indexElement = -1;
+        listImgElement[indexElement].classList.remove('active');
+        indexElement++;
+        listImgElement[indexElement].classList.add('active');
+
+        // console.log(indexElement);
+
+
+    } else {
+        btnDown.style.visibility = 'hidden';
     }
-
-    indexElement++;
-
-    listImgElement[indexElement].classList.add('active');
-
-    console.log(indexElement);
 })
 
 btnUp.addEventListener('click', function() {
+    
+    if (indexElement > 0) {
+        btnDown.style.visibility = 'visible';
 
-    listImgElement[indexElement].classList.remove('active');
+        listImgElement[indexElement].classList.remove('active');
+        indexElement--;
+        listImgElement[indexElement].classList.add('active');
 
-    if (indexElement === 0) {
-        indexElement = 5;
+        // console.log(indexElement);
+
+    } else if (indexElement === 0) {
+        btnUp.style.visibilty = 'hidden';
     }
-    indexElement--;
-
-    listImgElement[indexElement].classList.add('active');
-
-        console.log(indexElement);
 })

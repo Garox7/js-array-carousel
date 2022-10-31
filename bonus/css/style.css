@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.slider {
+    margin: 2rem auto;
+    width: 90%;
+    position: relative;
+}
+
+.slider__img {
+    display: none;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    inset: 0;
+    margin: .5rem 0;
+}
+.btn-up, .btn-down {
+    background-color: rgba(255, 255, 255, .3);
+    color: white;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .15s linear;
+}
+
+.btn-up:hover, .btn-down:hover {
+    transform: scale(.95);
+}
+
+.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
