@@ -22,7 +22,7 @@ const myArrayImg = [
     'img/05.jpg',
 ]
 
-const sliderElement = document.querySelector('.slider');
+const sliderElement = document.querySelector('.slider__section__img');
 const btnUp = document.querySelector('.btn-up');
 const btnDown = document.querySelector('.btn-down');
 
@@ -39,15 +39,20 @@ for (i = 0; i < myArrayImg.length; i++) {
 }
 
 const listImgElement = document.querySelectorAll('.slider__img');
+
 let indexElement = 0;
 
 btnDown.addEventListener('click', function() {
 
-    if (indexElement < listImgElement.length -1) {
+    if (indexElement < listImgElement.length - 1) {
         btnUp.style.visibility = 'visible';
+
         listImgElement[indexElement].classList.remove('active');
         indexElement++;
         listImgElement[indexElement].classList.add('active');
+
+        // console.log(indexElement);
+
 
     } else {
         btnDown.style.visibility = 'hidden';
@@ -58,11 +63,14 @@ btnUp.addEventListener('click', function() {
     
     if (indexElement > 0) {
         btnDown.style.visibility = 'visible';
+
         listImgElement[indexElement].classList.remove('active');
         indexElement--;
         listImgElement[indexElement].classList.add('active');
 
-    } else {
+        // console.log(indexElement);
+
+    } else if (indexElement === 0) {
         btnUp.style.visibilty = 'hidden';
     }
 })

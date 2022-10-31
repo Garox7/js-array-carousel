@@ -10,15 +10,14 @@ body {
 
 .slider {
     margin: 2rem auto;
-    width: 80%;
-    height: 40%;
+    width: 90%;
     position: relative;
 }
 
 .slider__img {
     display: none;
     width: 100%;
-    height: 100%;
+    height: 500px;
     object-fit: cover;
     object-position: center;
 }
