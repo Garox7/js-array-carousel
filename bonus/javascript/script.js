@@ -48,10 +48,10 @@ btnDown.addEventListener('click', function() {
     listImgElement[indexElement].classList.remove('active');
     listTumbElement[indexElement].classList.remove('selected');
 
-    if (indexElement === 4) {
-        indexElement = -1;
-    }
     indexElement++;
+    if (indexElement === listImgElement.length) {
+        indexElement = 0;
+    }
 
     listImgElement[indexElement].classList.add('active');
     listTumbElement[indexElement].classList.add('selected');
@@ -65,7 +65,7 @@ btnUp.addEventListener('click', function() {
     listTumbElement[indexElement].classList.remove('selected');
 
     if (indexElement === 0) {
-        indexElement = 5;
+        indexElement = listImgElement.length;
     }
     indexElement--;
 
