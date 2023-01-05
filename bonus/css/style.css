@@ -16,7 +16,7 @@ body {
 }
 
 .slider__section__img {
-    flex: 1 1 auto;
+    flex: 1 1 80%;
 }
 
 .slider__img {
@@ -32,7 +32,7 @@ body {
 }
 
 .slider__section__tumb {
-    flex: 1 1 0;
+    flex: 1 1 auto;
     height: 100%;
     width: 20%;
     position: relative;
@@ -90,7 +90,6 @@ body {
     .slider__section__tumb {
         display: flex;
         flex-direction: row;
-        width: 100%;
     }
 
     .slider__buttons {
